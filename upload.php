@@ -76,7 +76,7 @@ function convert($target_fileName)
 
     function sheetData($sheet)
     {
-        //echo "<pre>";
+        echo "<pre>";
         //print_r($sheet);
         //die();
         $re = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>' . "\n";
@@ -130,7 +130,7 @@ function convert($target_fileName)
                 $re .= "\t\t</$cell>\n";
             } else if ($y == 13) {
                 $re .= "\t\t<$cell>\n";
-                $cell3 = isset($sheet['cells'][1][15]) ? $sheet['cells'][1][15] : '';
+                $cell3 = isset($sheet['cells'][1][14]) ? $sheet['cells'][1][14] : '';
                 $re .= "\t\t\t<$cell3>\n";
                 $x = 15;
                 while ($x <= 17) {
@@ -423,8 +423,8 @@ function convert($target_fileName)
             die();
         }
 
-        //echo htmlspecialchars($re);
-        //echo die();
+        echo htmlspecialchars($re);
+        echo die();
 
 
         $file_name2 = "MAN" . $code . '_' . date("dmyhms");

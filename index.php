@@ -17,16 +17,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="B.M. SYEDUR RAHMAN,Coverter excel to xml converter, IGM Submission, Manifest Guide, Bangladesh Customs,Airlines , Courier Guide for IGM &amp; Cargo IGM." />
-    <meta name="description" content="B.M. SYEDUR RAHMAN, NATIONAL BOARD OF REVENUE, NBR, BANGLADESH DHAKA." />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="keywords"
+          content="B.M. SYEDUR RAHMAN,Coverter excel to xml converter, IGM Submission, Manifest Guide, Bangladesh Customs,Airlines , Courier Guide for IGM &amp; Cargo IGM."/>
+    <meta name="description" content="B.M. SYEDUR RAHMAN, NATIONAL BOARD OF REVENUE, NBR, BANGLADESH DHAKA."/>
 
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
     <title>Converter : EXCEL (XLS) TO XML </title>
     <style>
         /*.bg {*/
@@ -96,7 +97,8 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <div class="card-header">
                     <p class="text-center my-1 mb-3">Upload your Excel (.xls) File (MAN)</p>
                     <p class="text-center my-1 mb-3">Example of Excel Format file is <a href="MAN.xls"
-                                                                                        title="Example file">HERE</a></p>
+                                                                                        title="Example file">HERE</a>
+                    </p>
                     <p class="text-center my-1 mb-3"> Download and make your file like it .</p>
                 </div>
                 <div class="card-body">
@@ -140,15 +142,17 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
                 <div class="card-header">
                     <p class="text-center my-1 mb-3">Upload your Excel File (DEG)</p>
                     <p class="text-center my-1 mb-3">Example of Excel Format file is <a href="DEG.xls"
-                                                                                        title="Example file">HERE</a></p>
-                    <p  class="text-center my-1 mb-3"> Download and make your file like it .</p>
+                                                                                        title="Example file">HERE</a>
+                    </p>
+                    <p class="text-center my-1 mb-3"> Download and make your file like it .</p>
                 </div>
                 <div class="card-body">
-                    <form class="form-inline" method="post" enctype="multipart/form-data" action="upload.php">
+                    <form class="form-inline" method="post" id="theForm" enctype="multipart/form-data" action="upload.php">
                         <div class="input-group mb-2 mx-2">
                             <input type="file" name="excel" class="">
+                            <input type="hidden" name="uploadDEG" class="">
                         </div>
-                        <button type="submit" name="uploadDEG" class="btn btn-primary mb-2">Upload</button>
+                        <input type="submit"  class="btn btn-primary mb-2 upload" value="Upload">
                     </form>
                 </div>
             </div>
@@ -184,14 +188,28 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 </div>
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+<script>
+
+    $('.upload').on('click',function(e){
+        e.preventDefault();
+        var form = $(this).parents('form');
+        swal({
+            title: "Please check",
+            text: "\"Total number of  packages and Total Gross_mass of DEG file  will be equal to that of  the Master_bol_reference which you used\" , If Ok please proceed , otherwise your xml will not be uploaded into Customs Asycuda System.",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Yes, confirm it!",
+            closeOnConfirm: false
+        }, function(isConfirm){
+            if (isConfirm) form.submit();
+        });
+    });
+
+</script>
 </body>
 </html>
