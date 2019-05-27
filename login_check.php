@@ -9,10 +9,15 @@ if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
     if ($rowcount == 1) {
 
     } else {
-        header("login.php");
-        exit();
+        Redirect('http://nayem.bd/new/login.php', false);
     }
 } else {
-    header("Location:login.php");
+        Redirect('http://nayem.bd/new/login.php', false);
+}
+
+function Redirect($url, $permanent = false)
+{
+    header('Location: ' . $url, true, $permanent ? 301 : 302);
     exit();
 }
+

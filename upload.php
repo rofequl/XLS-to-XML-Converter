@@ -7,6 +7,10 @@ error_reporting(E_ALL & ~E_NOTICE);
 include('database.php');
 session_start();
 $id = $_COOKIE['id'];
+$sql = "select * from user where id='$id'";
+$result = mysqli_query($conn, $sql);
+$value = mysqli_fetch_object($result);
+$_SESSION['carrier_code'] = $value->carrier_code;
 if (isset($_POST['upload'])) {
     $target_dir = "xlsx/";
     $target_file = basename($_FILES["excel"]["name"]);
@@ -16,7 +20,7 @@ if (isset($_POST['upload'])) {
     $target_fileName = $target_dir . $file_name;
     if ($FileType != 'xls') {
         $_SESSION['message'] = 'Upload Only Excel File';
-        header('location: index.php');
+        header('location: converter/man.php');
     } else {
         if (move_uploaded_file($_FILES["excel"]["tmp_name"], $target_fileName)) {
             if (convert($target_fileName)) {
@@ -25,14 +29,14 @@ if (isset($_POST['upload'])) {
                 mysqli_query($conn, $insert);
                 delete($target_fileName);
                 $_SESSION['message'] = 'File upload successfully';
-                header('location: index.php');
+                header('location: converter/man.php');
             } else {
                 $_SESSION['message'] = 'Error';
-                header('location: index.php');
+                header('location: converter/man.php');
             }
         } else {
             $_SESSION['message'] = 'File upload Error';
-            header('location: index.php');
+            header('location: converter/man.php');
         }
     }
 }
@@ -46,7 +50,7 @@ if (isset($_POST['uploadDEG'])) {
     $target_fileName = $target_dir . $file_name;
     if ($FileType != 'xls') {
         $_SESSION['message'] = 'Upload Only Excel File';
-        header('location: index.php');
+        header('location: converter/deg.php');
     } else {
         if (move_uploaded_file($_FILES["excel"]["tmp_name"], $target_fileName)) {
             if (convert2($target_fileName)) {
@@ -55,14 +59,14 @@ if (isset($_POST['uploadDEG'])) {
                 mysqli_query($conn, $insert);
                 delete($target_fileName);
                 $_SESSION['message'] = 'File upload successfully';
-                header('location:index.php');
+                header('location:converter/deg.php');
             } else {
                 $_SESSION['message'] = 'Error';
-                header('location: index.php');
+                header('location: converter/deg.php');
             }
         } else {
             $_SESSION['message'] = 'File upload Error';
-            header('location: index.php');
+            header('location: converter/deg.php');
         }
     }
 }
@@ -76,7 +80,14 @@ function convert($target_fileName)
 
     function sheetData($sheet)
     {
-        echo "<pre>";
+        $row2 = isset($sheet['cells'][2][15]) ? $sheet['cells'][2][15] : '';
+        if ($row2 != $_SESSION['carrier_code']){
+            $_SESSION['message'] = 'Carrier code not match.';
+            header('location: converter/man.php');
+            die();
+        }
+
+        //echo "<pre>";
         //print_r($sheet);
         //die();
         $re = '<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>' . "\n";
@@ -116,14 +127,42 @@ function convert($target_fileName)
                 while ($x <= 12) {
                     $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                     $row2 = isset($sheet['cells'][2][$x]) ? $sheet['cells'][2][$x] : '';
+                    //Total Number of bol
                     if ($x == 9) {
-                        $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'integer') . "</$cell2>\n";
+                        $k = 2;
+                        $total_num_bol = 0;
+                        while ($k <= $sheet['numRows']) {
+                            $row2 = isset($sheet['cells'][$k][29]) ? $sheet['cells'][$k][29] : '';
+                            if ($row2 != '') {
+                                $total_num_bol++;
+                            }
+                            $k++;
+                        }
+                        $re .= "\t\t\t<$cell2>" . filter($cell2, $total_num_bol, false, false, 'integer') . "</$cell2>\n";
                     } else if ($x == 10) {
-                        $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'double') . "</$cell2>\n";
+                        $k = 2;
+                        $total_num_pack = 0;
+                        while ($k <= $sheet['numRows']) {
+                            $row2 = isset($sheet['cells'][$k][59]) ? $sheet['cells'][$k][59] : '';
+                            if ($row2 != '') {
+                                $total_num_pack+=$row2;
+                            }
+                            $k++;
+                        }
+                        $re .= "\t\t\t<$cell2>" . filter($cell2, $total_num_pack, false, false, 'double') . "</$cell2>\n";
                     } else if ($x == 11) {
                         $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'integer') . "</$cell2>\n";
                     } else {
-                        $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'double') . "</$cell2>\n";
+                        $k = 2;
+                        $total_gross_mass = 0;
+                        while ($k <= $sheet['numRows']) {
+                            $row2 = isset($sheet['cells'][$k][61]) ? $sheet['cells'][$k][61] : '';
+                            if ($row2 != '') {
+                                $total_gross_mass+=$row2;
+                            }
+                            $k++;
+                        }
+                        $re .= "\t\t\t<$cell2>" . filter($cell2, $total_gross_mass, false, false, 'double') . "</$cell2>\n";
                     }
                     $x++;
                 }
@@ -140,9 +179,9 @@ function convert($target_fileName)
                     if ($x == 15) {
                         $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 1, 'string') . "</$cell2>\n";
                     } else if ($x == 16) {
-                        $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                        $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string', true) . "</$cell2>\n";
                     } else {
-                        $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                        $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string', true) . "</$cell2>\n";
                     }
 
                     $x++;
@@ -157,7 +196,7 @@ function convert($target_fileName)
                     $row2 = isset($sheet['cells'][2][$x]) ? $sheet['cells'][2][$x] : '';
                     $row2 = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $row2);
                     if ($x == 19) {
-                        $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 0, 'string') . "</$cell2>\n";
+                        $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                     } else {
                         $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 0, 'string') . "</$cell2>\n";
                     }
@@ -266,9 +305,9 @@ function convert($target_fileName)
                         if ($x == 41) {
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 1, 'string') . "</$cell2>\n";
                         } else if ($x == 42) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -281,7 +320,7 @@ function convert($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 45) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 0, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                         } else {
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 0, 'string') . "</$cell2>\n";
                         }
@@ -296,9 +335,9 @@ function convert($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 49) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -311,11 +350,11 @@ function convert($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 51) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 0, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                         } else if ($x == 52) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -328,11 +367,11 @@ function convert($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 55) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 0, 'string') . "</$cell2>\n";
+                                $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                         } else if ($x == 56) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -423,8 +462,8 @@ function convert($target_fileName)
             die();
         }
 
-        echo htmlspecialchars($re);
-        echo die();
+        //echo htmlspecialchars($re);
+        //echo die();
 
 
         $file_name2 = "MAN" . $code . '_' . date("dmyhms");
@@ -454,6 +493,13 @@ function convert2($target_fileName)
 
     function sheetData($sheet)
     {
+        $row2 = isset($sheet['cells'][2][21]) ? $sheet['cells'][2][21] : '';
+        if ($row2 != $_SESSION['carrier_code']){
+            $_SESSION['message'] = 'Carrier code not match.';
+            header('location: converter/deg.php');
+            die();
+        }
+
         //echo "<pre>";
         //print_r($sheet);
         //die();
@@ -551,9 +597,9 @@ function convert2($target_fileName)
                         if ($x == 21) {
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 1, 'string') . "</$cell2>\n";
                         } else if ($x == 22) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -566,7 +612,7 @@ function convert2($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 25) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 0, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                         } else {
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 0, 'string') . "</$cell2>\n";
                         }
@@ -581,9 +627,9 @@ function convert2($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 28) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -596,11 +642,11 @@ function convert2($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 31) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 0, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                         } else if ($x == 32) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -613,7 +659,7 @@ function convert2($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 35) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 17, 0, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                         } else if ($x == 36) {
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
                         } else {
@@ -738,7 +784,7 @@ function delete($xlsx)
     }
 }
 
-function filter($cell, $row, $max = false, $min = false, $type = false)
+function filter($cell, $row, $max = false, $min = false, $type = false, $special_charecter = false)
 {
 
     if (isset($_SESSION["count"])) {
@@ -746,8 +792,6 @@ function filter($cell, $row, $max = false, $min = false, $type = false)
     } else {
         $count = 0;
     }
-
-    $row = trim($row, " \t\n\r");
     if ($max && strlen($row) > $max) {
         $row = substr($row, 0, $max);
     }
@@ -787,6 +831,10 @@ function filter($cell, $row, $max = false, $min = false, $type = false)
             }
         }
     }
+    if ($special_charecter){
+        $row = RemoveSpecialChar($row);
+    }
+    $row = trim($row, " \t\n\r");
     $row = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $row);
 
     return $row;
@@ -804,11 +852,15 @@ function validateTime($date, $format = 'H:i:s')
     return $d && $d->format($format) == $date;
 }
 
+function RemoveSpecialChar($value){
+    return str_replace( array( '\'', '"', ',' , '<', '>','&','!','%','*','?','¤','(',')','{','}','[',']' ), '', $value);
+}
+
 function tag($cell, $row)
 {
-    if ($row == '') {
-        return "<$cell/>\n";
+    if ($row == '' || $row == 0) {
+        return "<$cell/>";
     } else {
-        return "<$cell>$row</$cell>\n";
+        return "<$cell>".filter($cell, $row, 17, 0, 'string')."</$cell>";
     }
 }

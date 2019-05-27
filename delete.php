@@ -14,18 +14,22 @@ if (isset($_GET['id'])) {
     $fileName = basename($file, $fileType);
     $xlsx = "xlsx/" . $fileName . "xlsx";
     $xml = "xml/" . $file;
-
+    if(isset($_SERVER['HTTP_REFERER'])) {
+        $previous = $_SERVER['HTTP_REFERER'];
+    }else{
+        $previous = "javascript:history.go(-1)";
+    }
 
 
         $sql = "DELETE FROM file WHERE id=$id";
         if ($conn->query($sql) === TRUE) {
             if (unlink($xml)) {
                 $_SESSION['message'] = 'File Delete Successfully';
-                header("Location:index.php");
+                header("Location:$previous");
                 exit();
             } else {
                 $_SESSION['message'] = 'File not Delete, Something wrong';
-                header("Location:index.php");
+                header("Location:$previous");
                 exit();
             }
         } else {
