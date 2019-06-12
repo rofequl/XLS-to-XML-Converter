@@ -54,8 +54,9 @@ else{$path='../../';}
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
                    aria-expanded="false">Guide for XML</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="<?= $path ?>guide/page1.php">Guide for MAN</a>
-                    <a class="dropdown-item" href="<?= $path ?>guide/page2.php">Guide for DEG</a>
+                    <a class="dropdown-item" href="<?= $path ?>file/Data Structure for XML file.doc">Guide 1</a>
+                    <a class="dropdown-item" href="<?= $path ?>file/Manifest Rules.doc">Guide 2</a>
+                    <a class="dropdown-item" href="<?= $path ?>file/Naming Rules.docx">Guide 3</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

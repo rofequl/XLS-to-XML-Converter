@@ -139,6 +139,7 @@ function convert($target_fileName)
                             $k++;
                         }
                         $re .= "\t\t\t<$cell2>" . filter($cell2, $total_num_bol, false, false, 'integer') . "</$cell2>\n";
+                        //Total number of packages
                     } else if ($x == 10) {
                         $k = 2;
                         $total_num_pack = 0;
@@ -152,6 +153,7 @@ function convert($target_fileName)
                         $re .= "\t\t\t<$cell2>" . filter($cell2, $total_num_pack, false, false, 'double') . "</$cell2>\n";
                     } else if ($x == 11) {
                         $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'integer') . "</$cell2>\n";
+                        //Total gross mass
                     } else {
                         $k = 2;
                         $total_gross_mass = 0;
@@ -196,9 +198,13 @@ function convert($target_fileName)
                     $row2 = isset($sheet['cells'][2][$x]) ? $sheet['cells'][2][$x] : '';
                     $row2 = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $row2);
                     if ($x == 19) {
+                        //Shipping_Agent_code
                         $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                     } else {
-                        $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 0, 'string') . "</$cell2>\n";
+                        //Shipping_Agent_name
+                        $value = filter($cell2, $row2, 35, 0, 'string');
+                        $value = $value==0? '':$value;
+                        $re .= "\t\t\t\t<$cell2>" . $value . "</$cell2>\n";
                     }
                     $x++;
                 }
@@ -265,7 +271,10 @@ function convert($target_fileName)
                                 }
                             }
                         } else {
-                            $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 35, 0, 'string') . "</$cell2>\n";
+                            //DG_status
+                            $value = filter($cell2, $row2, 35, 0, 'string');
+                            $value = $value==0?'':$value;
+                            $re .= "\t\t\t<$cell2>" .$value. "</$cell2>\n";
                         }
 
 
@@ -334,7 +343,7 @@ function convert($target_fileName)
                     while ($x <= 49) {
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
-                        if ($x == 49) {
+                        if ($x == 48) {
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
@@ -393,13 +402,17 @@ function convert($target_fileName)
                         } else if ($x == 62) {
                             $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 512, 0, 'string') . "</$cell2>\n";
                         } else if ($x == 63) {
-                            $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 512, 1, 'string') . "</$cell2>\n";
+                            //Goods_description
+                            $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 512, 1, 'string',true) . "</$cell2>\n";
                         } else if ($x == 64) {
                             $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'double') . "</$cell2>\n";
                         } else if ($x == 65) {
                             $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'integer') . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 70, 0, 'string') . "</$cell2>\n";
+                            //Remarks
+                            $value = filter($cell2, $row2, 70, 0, 'string');
+                            $value = $value==0?'':$value;
+                            $re .= "\t\t\t<$cell2>" .$value. "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -430,6 +443,7 @@ function convert($target_fileName)
                         $cell2 = isset($sheet['cells'][1][$x]) ? $sheet['cells'][1][$x] : '';
                         $row2 = isset($sheet['cells'][$k][$x]) ? $sheet['cells'][$k][$x] : '';
                         if ($x == 72) {
+                            //Customs_value
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'double') . "</$cell2>\n";
                         } else {
                             $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 3, 0, 'string') . "</$cell2>\n";
@@ -559,7 +573,10 @@ function convert2($target_fileName)
                                 }
                             }
                         } else {
-                            $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 35, 0, 'string') . "</$cell2>\n";
+                            //DG_status
+                            $value = filter($cell2, $row2, 35, 0, 'string');
+                            $value=$value==0?'':$value;
+                            $re .= "\t\t\t<$cell2>" . $value . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -614,7 +631,10 @@ function convert2($target_fileName)
                         if ($x == 25) {
                             $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 0, 'string') . "</$cell2>\n";
+                            //Shipping_Agent_name
+                            $value =filter($cell2, $row2, 35, 0, 'string',true);
+                            $value=$value==0?'':$value;
+                            $re .= "\t\t\t\t<$cell2>" . $value . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -661,9 +681,9 @@ function convert2($target_fileName)
                         if ($x == 35) {
                             $re .= "\t\t\t\t".tag($cell2,$row2)."\n";
                         } else if ($x == 36) {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 35, 1, 'string',true) . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string') . "</$cell2>\n";
+                            $re .= "\t\t\t\t<$cell2>" . filter($cell2, $row2, 175, 1, 'string',true) . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -685,13 +705,17 @@ function convert2($target_fileName)
                         } else if ($x == 42) {
                             $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 512, 0, 'string') . "</$cell2>\n";
                         } else if ($x == 43) {
-                            $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 512, 1, 'string') . "</$cell2>\n";
+                            //Goods_description
+                            $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 512, 1, 'string',true) . "</$cell2>\n";
                         } else if ($x == 44) {
                             $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'double') . "</$cell2>\n";
                         } else if ($x == 45) {
                             $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, false, false, 'integer') . "</$cell2>\n";
                         } else {
-                            $re .= "\t\t\t<$cell2>" . filter($cell2, $row2, 70, 0, 'string') . "</$cell2>\n";
+                            //Remarks
+                            $value = filter($cell2, $row2, 70, 0, 'string');
+                            $value=$value==0?'':$value;
+                            $re .= "\t\t\t<$cell2>" . $value . "</$cell2>\n";
                         }
                         $x++;
                     }
@@ -811,7 +835,7 @@ function filter($cell, $row, $max = false, $min = false, $type = false, $special
             }
         } else if ($type == 'double') {
             if (gettype($row) != 'double') {
-                $row = floatval($row);
+                $row = number_format(floatval($row), 2, '.', '');;
             }
         } else if ($type == 'string') {
             if (gettype($row) != 'string') {
@@ -833,6 +857,10 @@ function filter($cell, $row, $max = false, $min = false, $type = false, $special
     }
     if ($special_charecter){
         $row = RemoveSpecialChar($row);
+//        $row = str_replace  ("<", "&lt;", $row);
+//        $row = str_replace  (">", "&gt;", $row);
+//        $row = str_replace  ('"', "&quot;", $row);
+//        $row = str_replace  ("''", "&apos;", $row);
     }
     $row = trim($row, " \t\n\r");
     $row = preg_replace('/&(?!#?[a-z0-9]+;)/', '&amp;', $row);
@@ -853,7 +881,7 @@ function validateTime($date, $format = 'H:i:s')
 }
 
 function RemoveSpecialChar($value){
-    return str_replace( array( '\'', '"', ',' , '<', '>','&','!','%','*','?','¤','(',')','{','}','[',']' ), '', $value);
+    return str_replace( array(',' ,'&','!','%','*','?','¤','(',')','{','}','[',']','<','>','"','\'','\\' ), '', $value);
 }
 
 function tag($cell, $row)
