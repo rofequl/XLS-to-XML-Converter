@@ -3,12 +3,62 @@
   <component name="ChangeListManager">
     <list default="true" id="b3e6c72c-9755-4dbc-84bc-f19e516043a1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DEG.xls" beforeDir="false" afterPath="$PROJECT_DIR$/DEG.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MAN.xls" beforeDir="false" afterPath="$PROJECT_DIR$/MAN.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/page1.php" beforeDir="false" afterPath="$PROJECT_DIR$/guide/page1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guide/page2.php" beforeDir="false" afterPath="$PROJECT_DIR$/guide/page2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/header/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/upload.php" beforeDir="false" afterPath="$PROJECT_DIR$/upload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecec0da700b1559030797.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecec434ef601559030851.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecec540f11d1559030868.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecec626e1501559030882.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecece434b4c1559031012.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ceced68ba85f1559031144.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ceceda14e9ae1559031201.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecede06e4c91559031264.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecedef480001559031279.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecee09dc82d1559031305.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecee2ae29a21559031338.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5cecee3435ddb1559031348.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced65dc6b8e11559061980.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced67642fc641559062372.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced682bd731f1559062571.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced685e830391559062622.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced689e6a8b61559062686.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced6aec72a531559063276.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced6b11a47c91559063313.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced6b2a6db3e1559063338.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced6c265cf751559063590.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5ced6c6201ce81559063650.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0078c9d1fcb1560312009.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0078f0679a41560312048.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0078fdcf7041560312061.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d00792c0ec0b1560312108.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d00794074feb1560312128.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d00794bc2c821560312139.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007b2f1e3061560312623.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007b4bdf5341560312651.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007b788f6841560312696.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007b8e8a2371560312718.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007bab68ffa1560312747.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007bd6ec79e1560312790.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007c210292c1560312865.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007c48a09fb1560312904.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007c9f8c73a1560312991.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007d0e518851560313102.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007df1c00d61560313329.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d007f0fa1c551560313615.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d00812f78e061560314159.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d00813b92ecb1560314171.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d00817a26e8d1560314234.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0081979c4f31560314263.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0082068cd881560314374.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d008220c89181560314400.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d00825bc5bb61560314459.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d008444b0f2e1560314948.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0084739bbaf1560314995.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0084ed211641560315117.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d008511b24841560315153.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0085630ff9a1560315235.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0085c89dba01560315336.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0085e4d693e1560315364.xls" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/xlsx/5d0085f29d46e1560315378.xls" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,44 +72,8 @@
       <executable />
     </execution>
   </component>
-  <component name="FileEditorManager">
-    <leaf />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>row</find>
-      <find>code</find>
-      <find>filter</find>
-      <find>img</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/download.php" />
-        <option value="$PROJECT_DIR$/error.php" />
-        <option value="$PROJECT_DIR$/helpers/Converter.php" />
-        <option value="$PROJECT_DIR$/example.php" />
-        <option value="$PROJECT_DIR$/xml/5cb190aaab93b1555140778.xml" />
-        <option value="$PROJECT_DIR$/xml/5cb191b39b5cb1555141043.xml" />
-        <option value="$PROJECT_DIR$/excel_reader.php" />
-        <option value="$PROJECT_DIR$/database.php" />
-        <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/delete.php" />
-        <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/login_check.php" />
-        <option value="$PROJECT_DIR$/profile/setting.php" />
-        <option value="$PROJECT_DIR$/converter/man.php" />
-        <option value="$PROJECT_DIR$/converter/deg.php" />
-        <option value="$PROJECT_DIR$/guide/page1.php" />
-        <option value="$PROJECT_DIR$/guide/page2.php" />
-        <option value="$PROJECT_DIR$/header/header.php" />
-        <option value="$PROJECT_DIR$/upload.php" />
-      </list>
-    </option>
   </component>
   <component name="PhpServers">
     <servers />
@@ -74,28 +88,14 @@
       <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2" />
-    <option name="y" value="39" />
-    <option name="width" value="1293" />
-    <option name="height" value="736" />
-  </component>
+  <component name="ProjectId" id="1OySAttDRRrTMga4jrOfk9MKC5X" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
-    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../new2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -166,206 +166,31 @@
       <workItem from="1559296507918" duration="607000" />
       <workItem from="1560309063980" duration="63000" />
       <workItem from="1560309165608" duration="4064000" />
+      <workItem from="1560399272936" duration="165000" />
+      <workItem from="1560920428720" duration="347000" />
+      <workItem from="1564948204987" duration="4248000" />
+      <workItem from="1565372865949" duration="7416000" />
+      <workItem from="1565414061283" duration="2609000" />
+      <workItem from="1566022352869" duration="2667000" />
+      <workItem from="1566071579096" duration="2069000" />
+      <workItem from="1566108263347" duration="1199000" />
     </task>
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176120000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <layout>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.22693998" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32923076" />
-      <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="8" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="12" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="13" weight="0.32923076" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.24304539" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" />
-      <window_info anchor="bottom" id="Message" order="3" />
-      <window_info anchor="bottom" id="Find" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" weight="0.32923076" />
-      <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="8" />
-      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="11" />
-      <window_info anchor="bottom" id="CSS-X-Fire" order="12" />
-      <window_info anchor="bottom" id="Command Line Tools Console" order="13" weight="0.32923076" />
-      <window_info anchor="right" id="Database" order="0" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="506" column="16" selection-start-line="506" selection-start-column="16" selection-end-line="506" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/error.php" />
-    <entry file="file://$PROJECT_DIR$/helpers/SimpleXMLExtended.php" />
-    <entry file="file://$PROJECT_DIR$/helpers/Converter.php" />
-    <entry file="file://$PROJECT_DIR$/xml/5cb190aaab93b1555140778.xml" />
-    <entry file="file://$PROJECT_DIR$/xml/5cb191b39b5cb1555141043.xml" />
-    <entry file="file://$PROJECT_DIR$/xml/5cb193add190b1555141549.xml" />
-    <entry file="file://$PROJECT_DIR$/xml/5cb193ff76efd1555141631.xml" />
-    <entry file="file://$PROJECT_DIR$/xml/5cb19451549b31555141713.xml" />
-    <entry file="file://$PROJECT_DIR$/xml/5cb194d7e9b881555141847.xml" />
-    <entry file="file://$PROJECT_DIR$/excel_reader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="34" column="35" lean-forward="true" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/_types.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="105" column="13" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/download.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oleread.inc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/delete.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="31" column="45" lean-forward="true" selection-start-line="31" selection-start-column="45" selection-end-line="31" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login_check.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="1" column="26" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="72" lean-forward="true" selection-start-line="20" selection-start-column="72" selection-end-line="20" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/profile/setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter/man.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="47" column="21" lean-forward="true" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/converter/deg.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="82" column="42" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
-          <folding>
-            <element signature="e#775#782#1#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/guide/page2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="5302" selection-start-line="5302" selection-end-line="5302" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/guide/page1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="5286" column="21" selection-start-line="5286" selection-start-column="21" selection-end-line="5286" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/header/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/upload.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="102" column="37" lean-forward="true" selection-start-line="102" selection-start-column="37" selection-end-line="102" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
